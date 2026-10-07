@@ -1,0 +1,163 @@
+:root {
+  /* ---------- Identidad Politécnica ---------- */
+  --epn-blue: #003876;
+  --epn-blue-600: #0a4fa4;
+  --epn-blue-dark: #00234d;
+  --epn-blue-light: #3d8be0;
+  --epn-red: #b30006;
+  --epn-red-dark: #8a0005;
+  --epn-red-light: #e0333a;
+
+  /* ---------- Semáforo ---------- */
+  --green: #16a34a;
+  --green-dark: #15803d;
+  --amber: #d97706;
+  --amber-dark: #b45309;
+
+  /* ---------- Texto y superficies (tema claro) ---------- */
+  --bg: #eef2f9;
+  --bg-soft: #f6f8fc;
+  --card-bg: #ffffff;
+  --tile-bg: #f4f7fb;
+  --input-bg: #fbfcfe;
+  --text: #475467;
+  --text-mut: #667085;
+  --text-h: #101828;
+  --border: #e2e8f2;
+  --border-strong: #cbd5e1;
+
+  /* ---------- Sombras y radios ---------- */
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.06);
+  --shadow-md: 0 6px 14px -4px rgba(16, 24, 40, 0.09), 0 3px 8px -4px rgba(16, 24, 40, 0.06);
+  --shadow-lg: 0 20px 40px -16px rgba(16, 24, 40, 0.18), 0 8px 20px -12px rgba(16, 24, 40, 0.1);
+  --ring-blue: 0 0 0 4px rgba(0, 56, 118, 0.14);
+  --ring-red: 0 0 0 4px rgba(179, 0, 6, 0.12);
+  --ring-green: 0 0 0 4px rgba(22, 163, 74, 0.14);
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  /* ---------- Tipografía ---------- */
+  --sans: 'Inter', system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --heading: 'Inter', system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --mono: ui-monospace, 'SF Mono', Consolas, 'Roboto Mono', monospace;
+
+  font: 16px/1.5 var(--sans);
+  letter-spacing: 0.1px;
+  color-scheme: light;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 640px) {
+  :root {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Releer: acentos luminosos sobre fondo oscuro */
+    --epn-blue: #2f7bd6;
+    --epn-blue-600: #5a9be8;
+    --epn-blue-dark: #1a4f8f;
+    --epn-blue-light: #7db3f0;
+    --epn-red: #e0333a;
+    --epn-red-dark: #a80f16;
+    --epn-red-light: #ef5d61;
+
+    --bg: #0c1424;
+    --bg-soft: #0f1a2f;
+    --card-bg: #131f36;
+    --tile-bg: #16233c;
+    --input-bg: #0e1830;
+    --text: #b6c2d6;
+    --text-mut: #8ea0bd;
+    --text-h: #f1f5fb;
+    --border: rgba(148, 163, 184, 0.16);
+    --border-strong: rgba(148, 163, 184, 0.28);
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 8px 18px -6px rgba(0, 0, 0, 0.45), 0 4px 10px -6px rgba(0, 0, 0, 0.35);
+    --shadow-lg: 0 24px 48px -18px rgba(0, 0, 0, 0.6), 0 10px 24px -14px rgba(0, 0, 0, 0.4);
+    --ring-blue: 0 0 0 4px rgba(47, 123, 214, 0.25);
+    --ring-red: 0 0 0 4px rgba(224, 51, 58, 0.22);
+    --ring-green: 0 0 0 4px rgba(74, 222, 128, 0.2);
+
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(0, 56, 118, 0.08), transparent 60%),
+    radial-gradient(900px 500px at 110% 110%, rgba(179, 0, 6, 0.07), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--text);
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--heading);
+  color: var(--text-h);
+  text-wrap: balance;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--epn-blue-600);
+  text-underline-offset: 3px;
+}
+
+::selection {
+  background: rgba(179, 0, 6, 0.25);
+}
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--epn-blue-600) 55%, transparent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--border-strong) 70%, transparent);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
